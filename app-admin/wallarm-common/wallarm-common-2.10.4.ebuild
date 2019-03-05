@@ -52,10 +52,12 @@ src_install() {
         insinto "/etc"
         doins -r etc/wallarm 
 
-        insinto "/usr/share"
-        doins -r usr/share/wallarm-common
-        fperms 755 /usr/share/${PN}/*
-        fperms 644 /usr/share/${PN}/ca.pem
+        insinto "/usr/share/${PN}"
+        doins usr/share/${PN}/ca.pem
+        exeinto "/usr/share/${PN}"
+        for f in $(ls -1 usr/share/${PN}/|grep -v ca.pem); do
+          doexe usr/share/${PN}/${f}
+        done
 
         insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
         doins -r usr/lib/ruby/vendor_ruby/wallarm

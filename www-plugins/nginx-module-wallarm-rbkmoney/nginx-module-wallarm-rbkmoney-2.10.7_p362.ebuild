@@ -22,6 +22,7 @@ IUSE="collectd"
 
 DEPEND=""
 RDEPEND="dev-libs/libconfig
+         =www-servers/nginx-1.14.1*
          dev-db/lmdb
 		 dev-libs/libproton
 		 dev-libs/libtws

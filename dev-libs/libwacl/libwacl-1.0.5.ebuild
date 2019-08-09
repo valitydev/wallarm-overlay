@@ -28,7 +28,7 @@ src_unpack() {
 src_prepare() {
         eapply_user
 
-        unpack usr/share/doc/${PN}/changelog.gz
+        unpack usr/share/doc/${PN}/changelog.Debian.gz
 }
 
 src_install() {

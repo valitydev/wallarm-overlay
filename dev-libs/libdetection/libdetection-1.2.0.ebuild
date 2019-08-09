@@ -37,6 +37,6 @@ src_install() {
         dodoc usr/share/doc/${PN}${DEB_PV}/README.md
         dodoc changelog.Debian
 
-        dolib.so usr/lib/x86_64-linux-gnu/${PN}.so.${PV}
-        dosym ${PN}.so.${PV} /usr/$(get_libdir)/${PN}.so.$(ver_cut 1)
+        dolib.so usr/lib/x86_64-linux-gnu/${PN}.so.${DEB_PV}.0.0
+        dosym ${PN}.so.${DEB_PV}.0.0 /usr/$(get_libdir)/${PN}.so.${DEB_PV}
 }

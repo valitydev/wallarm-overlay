@@ -33,7 +33,7 @@ src_prepare() {
 
 src_install() {
         dodoc usr/share/doc/${PN}/copyright
-        dodoc changelog
+        dodoc changelog.Debian
 
         dolib.so usr/lib/x86_64-linux-gnu/${PN}.so.1.0.0
         dosym ${PN}.so.1.0.0 /usr/$(get_libdir)/${PN}.so.$(ver_cut 1)

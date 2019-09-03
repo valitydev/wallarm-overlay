@@ -5,7 +5,7 @@ EAPI=7
 
 inherit unpacker 
 
-DEB_PL="2"
+DEB_PL="1"
 MY_PV="${PV##*_p}"
 MY_GIT="rbkmoney${MY_PV%%_*}"
 MY_PV="${PV%%_*}"
@@ -22,7 +22,7 @@ IUSE="collectd"
 
 DEPEND=""
 RDEPEND="dev-libs/libconfig
-         =www-servers/nginx-1.16.0*
+         =www-servers/nginx-1.16.1*
 		 dev-db/lmdb
 		 dev-libs/libproton
 		 dev-libs/libtws

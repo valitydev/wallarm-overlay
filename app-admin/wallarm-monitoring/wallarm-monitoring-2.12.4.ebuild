@@ -18,7 +18,7 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="net-analyzer/monitoring-plugins
-         app-metrics/collectd
+         app-metrics/collectd[threshold]
 		 dev-python/cryptography
 		 dev-python/pynsca
 		 dev-python/msgpack

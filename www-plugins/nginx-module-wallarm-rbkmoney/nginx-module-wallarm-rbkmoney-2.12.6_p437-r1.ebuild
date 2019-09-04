@@ -18,7 +18,7 @@ SRC_URI="http://repo.wallarm.com/debian/wallarm-node-rbkmoney/stretch/pool/${MY_
 LICENSE=""
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="collectd"
+IUSE="+monitoring"
 
 DEPEND=""
 RDEPEND="dev-libs/libconfig
@@ -30,7 +30,8 @@ RDEPEND="dev-libs/libconfig
 		 dev-libs/libwlog
 		 dev-libs/libwyajl
 		 dev-libs/libyaml
-		 app-admin/wallarm-common"
+		 app-admin/wallarm-common
+		 monitoring? ( app-admin/wallarm-monitoring )"
 BDEPEND=""
 
 src_unpack() {
@@ -55,7 +56,7 @@ src_install() {
 
         insinto "/etc"
         doins -r etc/wallarm
-        if use collectd ; then
+        if use monitoring ; then
           doins -r etc/collectd
         fi
 }

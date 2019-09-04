@@ -19,6 +19,8 @@ IUSE=""
 DEPEND=""
 RDEPEND="net-analyzer/monitoring-plugins
          app-metrics/collectd
+		 dev-python/cryptography
+		 dev-python/YURL
 		 dev-python/pynsca
 		 dev-python/msgpack
 		 dev-python/pyyaml"

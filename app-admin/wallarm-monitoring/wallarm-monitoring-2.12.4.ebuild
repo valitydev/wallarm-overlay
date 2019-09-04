@@ -19,7 +19,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="net-analyzer/nagios-plugins
          app-metrics/collectd
-		 dev-libs/libyajl
+		 dev-python/pynsca
 		 dev-python/msgpack
 		 dev-python/pycrypto
 		 dev-python/pyyaml"

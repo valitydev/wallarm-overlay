@@ -17,7 +17,7 @@ KEYWORDS="amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="net-analyzer/nagios-plugins
+RDEPEND="net-analyzer/monitoring-plugins
          app-metrics/collectd
 		 dev-python/pynsca
 		 dev-python/msgpack

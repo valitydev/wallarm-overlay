@@ -21,7 +21,6 @@ RDEPEND="net-analyzer/monitoring-plugins
          app-metrics/collectd
 		 dev-python/pynsca
 		 dev-python/msgpack
-		 dev-python/pycrypto
 		 dev-python/pyyaml"
 BDEPEND=""
 

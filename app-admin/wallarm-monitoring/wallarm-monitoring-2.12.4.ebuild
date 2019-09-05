@@ -35,6 +35,7 @@ src_prepare() {
 
         unpack usr/share/doc/${PN}/changelog.gz
 		unpack usr/share/doc/${PN}/NEWS.Debian.gz
+		sed -i 's/<P/LoadPlugin python\n\n<P/' etc/collectd/collectd.conf.d/write_api.conf
 }
 
 src_install() {
@@ -47,6 +48,7 @@ src_install() {
 		fperms -R 755 /usr/$(get_libdir)/nagios/plugins
 		doins -r usr/lib/collectd
 
-		insinto "/etc"
-		doins -r etc/collectd
+		insinto "/etc/collectd/conf.d"
+		doins etc/collectd/collectd.conf.d/write_api.conf
+		doins etc/collectd/collectd.conf.d/traps.conf
 }

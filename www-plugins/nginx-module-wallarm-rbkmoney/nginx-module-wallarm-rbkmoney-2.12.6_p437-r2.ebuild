@@ -57,6 +57,7 @@ src_install() {
         insinto "/etc"
         doins -r etc/wallarm
         if use monitoring ; then
-          doins -r etc/collectd
+		  insinto "/etc/collectd/conf.d"
+          doins -r etc/collectd/collectd.conf.d/nginx-wallarm.conf
         fi
 }

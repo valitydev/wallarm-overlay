@@ -1,0 +1,69 @@
+--- a/usr/lib/collectd/python/WallarmAPIWriter.py
++++ b/usr/lib/collectd/python/WallarmAPIWriter.py
+@@ -24,3 +24,3 @@ try:
+ except:
+-    import Queue as queue
++    import queue as queue
+ import ssl
+@@ -31,3 +31,3 @@ try:
+     else:
+-        import httplib
++        import http.client
+ except:
+@@ -36,3 +36,3 @@ import time
+ import threading
+-import urlparse
++import urllib.parse
+ import yaml
+@@ -58,3 +58,3 @@ except:
+
+-    class WallarmHTTPSConnection(httplib.HTTPSConnection):
++    class WallarmHTTPSConnection(http.client.HTTPSConnection):
+         "This class adds certificate checking into SSL connections in old Python versions."
+@@ -64,3 +64,3 @@ except:
+             self.ca_certs = ca_certs
+-            httplib.HTTPSConnection.__init__(self, host, port, key_file, cert_file,
++            http.client.HTTPSConnection.__init__(self, host, port, key_file, cert_file,
+                                      strict, timeout)
+@@ -225,5 +225,3 @@ class WallarmApiWriter(object):
+                 self.types[type_name] = list(zip(
+-                    *map(
+-                        lambda n: n[:2], v
+-                    )
++                    *[n[:2] for n in v]
+                 ))
+@@ -241,3 +239,3 @@ class WallarmApiWriter(object):
+             with open(self.config['api_conn_file']) as fo:
+-                api_creds = yaml.load(fo)
++                api_creds = yaml.safe_load(fo)
+                 # TODO (adanin): catch yaml.load exception too.
+@@ -453,3 +451,3 @@ class WallarmApiWriter(object):
+         if val is not None:
+-            url = urlparse.urlparse(val)
++            url = urllib.parse.urlparse(val)
+             return url, self.get_auth_headers(url)
+@@ -465,3 +463,3 @@ class WallarmApiWriter(object):
+                         file.close()
+-                        url = urlparse.urlparse(etc_val.rstrip())
++                        url = urllib.parse.urlparse(etc_val.rstrip())
+                         return url, self.get_auth_headers(url)
+@@ -470,3 +468,3 @@ class WallarmApiWriter(object):
+                     file.close()
+-        return urlparse.urlparse(''), {}
++        return urllib.parse.urlparse(''), {}
+
+@@ -504,3 +502,3 @@ class WallarmApiWriter(object):
+                         sslctx.load_verify_locations(cafile=verify)
+-                    conn = httplib.HTTPSConnection(
++                    conn = http.client.HTTPSConnection(
+                         host, port,
+@@ -525,3 +523,3 @@ class WallarmApiWriter(object):
+                     port = proxyurl.port
+-                conn = httplib.HTTPConnection(
++                conn = http.client.HTTPConnection(
+                     host, port,
+@@ -547,3 +545,3 @@ class WallarmApiWriter(object):
+
+-        except (httplib.HTTPException, socket.timeout, ssl.SSLError) as e:
++        except (http.client.HTTPException, socket.timeout, ssl.SSLError) as e:
+             self.log(

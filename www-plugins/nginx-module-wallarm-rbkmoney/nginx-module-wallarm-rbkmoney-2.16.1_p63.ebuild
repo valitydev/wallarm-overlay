@@ -22,7 +22,7 @@ IUSE="+monitoring"
 
 DEPEND=""
 RDEPEND="dev-libs/libconfig
-         =www-servers/nginx-1.18.1*
+         =www-servers/nginx-1.18.0*
 		 dev-db/lmdb
          >=dev-libs/libproton-2.16.0
 		 dev-libs/libtws

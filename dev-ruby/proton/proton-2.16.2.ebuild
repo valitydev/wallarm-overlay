@@ -5,11 +5,13 @@ EAPI=7
 
 inherit unpacker
 
+DEB_PL="1"
+MY_PV="${PV}-${DEB_PL}"
 RUBY_TG="2.5.0"
 
 DESCRIPTION="Wallarm Web Application Firewall - ruby bindings"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/2.16/pool/ruby-${PN}_${PV}_amd64.deb"
+SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/2.16/pool/ruby-${PN}_${MY_PV}_amd64.deb"
 
 LICENSE=""
 SLOT="0"

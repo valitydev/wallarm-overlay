@@ -5,12 +5,14 @@ EAPI=7
 
 inherit unpacker
 
+DEB_PL="7"
+MY_PV="${PV}-${DEB_PL}"
 RUBY_TG="2.5.0"
 DEB_ARCH="all"
 
 DESCRIPTION="Ruby library for access Wallarm API"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/2.16/pool/ruby-${PN}_${PV}_${DEB_ARCH}.deb"
+SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/2.16/pool/ruby-${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"

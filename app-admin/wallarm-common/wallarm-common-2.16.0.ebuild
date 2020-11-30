@@ -5,12 +5,14 @@ EAPI=7
 
 inherit unpacker 
 
+DEB_PL="7"
+MY_PV="${PV}-${DEB_PL}"
 DEB_ARCH="all"
 RUBY_TG="2.5.0"
 
 DESCRIPTION="Wallarm - common files"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/2.16/pool/${PN}_${PV}_${DEB_ARCH}.deb"
+SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/2.16/pool/${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"

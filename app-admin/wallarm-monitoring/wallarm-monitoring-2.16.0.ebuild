@@ -39,14 +39,14 @@ src_unpack() {
 src_prepare() {
 		default
 
-		unpack usr/share/doc/${PN}/changelog.gz
+		unpack usr/share/doc/${PN}/changelog.Debian.gz
 		unpack usr/share/doc/${PN}/NEWS.Debian.gz
 		sed -i 's/<P/LoadPlugin python\n\n<P/' etc/collectd/collectd.conf.d/write_api.conf
 }
 
 src_install() {
 		dodoc usr/share/doc/${PN}/copyright
-		dodoc changelog
+		dodoc changelog.Debian
 		dodoc NEWS.Debian
 
 		insinto "/usr/$(get_libdir)"

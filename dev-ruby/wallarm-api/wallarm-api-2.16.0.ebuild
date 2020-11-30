@@ -34,13 +34,13 @@ src_unpack() {
 src_prepare() {
         eapply_user
 
-        unpack usr/share/doc/ruby-${PN}/changelog.gz
+        unpack usr/share/doc/ruby-${PN}/changelog.Debian.gz
 		unpack usr/share/doc/ruby-${PN}/NEWS.Debian.gz
 }
 
 src_install() {
         dodoc usr/share/doc/ruby-${PN}/copyright
-        dodoc changelog
+        dodoc changelog.Debian
 		dodoc NEWS.Debian
 
 		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}

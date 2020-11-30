@@ -37,13 +37,13 @@ src_unpack() {
 src_prepare() {
         eapply_user
 
-        unpack usr/share/doc/${PN}/changelog.gz
+        unpack usr/share/doc/${PN}/changelog.Debian.gz
         unpack usr/share/doc/${PN}/NEWS.Debian.gz
 }
 
 src_install() {
         dodoc usr/share/doc/${PN}/copyright
-        dodoc changelog
+        dodoc changelog.Debian
         dodoc NEWS.Debian
 
         if use logrotate ; then

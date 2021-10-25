@@ -10,7 +10,7 @@ DEB_PL="6"
 
 DESCRIPTION="Wallarm Web Application Firewall - ruby bindings"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="https://repo.wallarm.com/debian/wallarm-node/stretch/3.2/pool/ruby-${PN}_${PV}-${DEB_PL}_amd64.deb"
+SRC_URI="https://repo.wallarm.com/debian/wallarm-node/buster/3.2/pool/ruby-${PN}_${PV}-${DEB_PL}_amd64.deb"
 
 LICENSE=""
 SLOT="0"
@@ -38,7 +38,7 @@ src_install() {
 
         insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/
                 dodir /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/${PN}
-		doins -r usr/lib/x86_64-linux-gnu/ruby/vendor_ruby/2.3.0/${PN}
+		doins -r usr/lib/x86_64-linux-gnu/ruby/vendor_ruby/2.5.0/${PN}
 		fperms 755 /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/${PN}/native_murmur.so
 		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
 		doins usr/lib/ruby/vendor_ruby/${PN}.rb

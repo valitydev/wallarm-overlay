@@ -12,7 +12,7 @@ DEB_ARCH="all"
 
 DESCRIPTION="Ruby library for access Wallarm API"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="https://repo.wallarm.com/debian/wallarm-node/stretch/3.2/pool/ruby-${PN}_${MY_PV}_${DEB_ARCH}.deb"
+SRC_URI="https://repo.wallarm.com/debian/wallarm-node/buster/3.2/pool/ruby-${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"
@@ -24,7 +24,8 @@ RDEPEND="dev-lang/ruby:2.6
 	 dev-ruby/json
 	 dev-ruby/msgpack
 	 dev-ruby/thread
-	 dev-ruby/proton"
+	 dev-ruby/proton
+	 dev-ruby/wallarm-rest-client"
 BDEPEND=""
 
 src_unpack() {

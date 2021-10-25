@@ -5,17 +5,14 @@ EAPI=7
 
 inherit unpacker
 
-RUBY_TG="2.6.0"
-DEB_PL="4"
+DEB_PL="1"
+MY_PV="${PV}-${DEB_PL}"
+RUBY_TG="2.5.0"
 DEB_ARCH="all"
-MY_PV="${PV##*_p}"
-MY_GIT="${MY_PV%%_*}+7e91ca4"
-MY_PV="${PV%%_*}"
-MY_P="${PN}_${MY_PV}+${MY_GIT}"
 
-DESCRIPTION="Parser Generator"
+DESCRIPTION="Ruby library for access Wallarm API"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/pool/ruby-${MY_P}-${DEB_PL}_${DEB_ARCH}.deb"
+SRC_URI="https://repo.wallarm.com/debian/wallarm-node/buster/3.2/pool/ruby-${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"
@@ -23,7 +20,12 @@ KEYWORDS="amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-lang/ruby:2.6"
+RDEPEND="dev-lang/ruby:2.5
+	 dev-ruby/json
+	 dev-ruby/msgpack
+	 dev-ruby/thread
+	 dev-ruby/proton
+	 dev-ruby/wallarm-rest-client"
 BDEPEND=""
 
 src_unpack() {
@@ -35,12 +37,14 @@ src_prepare() {
         eapply_user
 
         unpack usr/share/doc/ruby-${PN}/changelog.Debian.gz
+		unpack usr/share/doc/ruby-${PN}/NEWS.Debian.gz
 }
 
 src_install() {
         dodoc usr/share/doc/ruby-${PN}/copyright
         dodoc changelog.Debian
+		dodoc NEWS.Debian
 
 		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
-		doins -r usr/lib/ruby/vendor_ruby/${PN}
+		doins -r usr/lib/ruby/vendor_ruby/wallarm
 }

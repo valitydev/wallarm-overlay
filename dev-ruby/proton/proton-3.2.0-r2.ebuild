@@ -7,8 +7,8 @@ inherit unpacker
 
 DEB_PL="1"
 MY_PV="${PV}-${DEB_PL}"
-RUBY_TG="2.6.0"
-DEB_ARCH="all"
+RUBY_TG="2.5.0"
+DEB_ARCH="amd64"
 
 DESCRIPTION="Wallarm Web Application Firewall - ruby bindings"
 HOMEPAGE="http://wallarm.com"
@@ -22,7 +22,11 @@ IUSE=""
 DEPEND=""
 RDEPEND="dev-libs/libconfig
          >=dev-libs/libproton-3.2.0
-	 dev-lang/ruby:2.6"
+	 dev-lang/ruby:2.5
+	 dev-libs/libwlog
+	 dev-ruby/msgpack
+	 dev-ruby/murmurhash3
+	 dev-ruby/parser-generator"
 BDEPEND=""
 
 src_unpack() {
@@ -40,6 +44,10 @@ src_install() {
         dodoc usr/share/doc/ruby-${PN}/copyright
         dodoc changelog.Debian
 
+        insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/
+		doins -r usr/lib/x86_64-linux-gnu/ruby/vendor_ruby/${RUBY_TG}/${PN}
+		fperms 755 /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/${PN}/${PN}.so
 		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
-		doins -r usr/lib/ruby/vendor_ruby/wallarm
+		doins usr/lib/ruby/vendor_ruby/${RUBY_TG}/${PN}.rb
+		doins -r usr/lib/ruby/vendor_ruby/${RUBY_TG}/${PN}
 }

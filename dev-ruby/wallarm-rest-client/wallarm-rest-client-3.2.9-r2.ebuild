@@ -5,13 +5,14 @@ EAPI=7
 
 inherit unpacker
 
-RUBY_TG="2.6.0"
 DEB_PL="1"
+MY_PV="${PV}-${DEB_PL}"
+RUBY_TG="2.5.0"
 DEB_ARCH="all"
 
-DESCRIPTION="Parser Generator"
+DESCRIPTION="Wallarm Web Application Firewall - ruby bindings"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="http://repo.wallarm.com/ubuntu/wallarm-node/bionic/pool/ruby-${PN}_${PV}-${DEB_PL}_${DEB_ARCH}.deb"
+SRC_URI="https://repo.wallarm.com/debian/wallarm-node/buster/3.2/pool/ruby-${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"
@@ -19,7 +20,9 @@ KEYWORDS="amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-lang/ruby:2.6"
+RDEPEND="dev-libs/libconfig
+         >=dev-libs/libproton-3.2.0
+	 dev-lang/ruby:2.5"
 BDEPEND=""
 
 src_unpack() {
@@ -38,6 +41,5 @@ src_install() {
         dodoc changelog.Debian
 
 		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
-		doins usr/lib/ruby/vendor_ruby/$(ver_rs 1- _ ${PN}).rb
-		doins -r usr/lib/ruby/vendor_ruby/$(ver_rs 1- _ ${PN})
+		doins -r usr/lib/ruby/vendor_ruby/wallarm
 }

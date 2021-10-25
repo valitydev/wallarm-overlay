@@ -5,7 +5,7 @@ EAPI=7
 
 inherit unpacker
 
-RUBY_TG="2.6.0"
+RUBY_TG="2.5.0"
 DEB_PL="6"
 
 DESCRIPTION="Wallarm Web Application Firewall - ruby bindings"
@@ -18,7 +18,7 @@ KEYWORDS="amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-lang/ruby:2.6"
+RDEPEND="dev-lang/ruby:2.5"
 BDEPEND=""
 
 src_unpack() {
@@ -38,7 +38,7 @@ src_install() {
 
         insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/
                 dodir /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/${PN}
-		doins -r usr/lib/x86_64-linux-gnu/ruby/vendor_ruby/2.5.0/${PN}
+		doins -r usr/lib/x86_64-linux-gnu/ruby/vendor_ruby/${RUBY_TG}/${PN}
 		fperms 755 /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}/x86_64-linux/${PN}/native_murmur.so
 		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
 		doins usr/lib/ruby/vendor_ruby/${PN}.rb

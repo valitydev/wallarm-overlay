@@ -8,11 +8,11 @@ inherit unpacker
 DEB_PL="1"
 MY_PV="${PV}-${DEB_PL}"
 DEB_ARCH="all"
-RUBY_TG="2.6.0"
+RUBY_TG="2.5.0"
 
 DESCRIPTION="Wallarm - common files"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="https://repo.wallarm.com/debian/wallarm-node/stretch/3.2/pool/${PN}_${MY_PV}_${DEB_ARCH}.deb"
+SRC_URI="https://repo.wallarm.com/debian/wallarm-node/buster/3.2/pool/${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"

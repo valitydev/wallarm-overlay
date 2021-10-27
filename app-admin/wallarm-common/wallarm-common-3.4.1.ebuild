@@ -8,11 +8,11 @@ inherit unpacker
 DEB_PL="1"
 MY_PV="${PV}-${DEB_PL}"
 DEB_ARCH="all"
-RUBY_TG="2.5.0"
+RUBY_TG="2.7.0"
 
 DESCRIPTION="Wallarm - common files"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="https://repo.wallarm.com/debian/wallarm-node/buster/3.2/pool/${PN}_${MY_PV}_${DEB_ARCH}.deb"
+SRC_URI="https://repo.wallarm.com/ubuntu/wallarm-node/focal/3.4/pool/${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"
@@ -21,13 +21,13 @@ IUSE="logrotate"
 
 DEPEND=""
 RDEPEND="logrotate? ( app-admin/logrotate )
-         dev-lang/ruby:2.6
+         dev-lang/ruby:2.7
          dev-ruby/hashie
          dev-ruby/highline
          dev-ruby/sqlite3
          dev-ruby/rest-client
-         >=dev-ruby/wallarm-api-3.2.9
-         >=dev-ruby/proton-3.2.0"
+         >=dev-ruby/wallarm-api-3.4.0
+         >=dev-ruby/proton-3.4.0"
 BDEPEND=""
 
 src_unpack() {

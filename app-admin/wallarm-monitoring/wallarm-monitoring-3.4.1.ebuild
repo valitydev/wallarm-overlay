@@ -11,7 +11,7 @@ DEB_ARCH="all"
 
 DESCRIPTION="Wallarm - common files"
 HOMEPAGE="http://wallarm.com"
-SRC_URI="https://repo.wallarm.com/debian/wallarm-node/stretch/3.2/pool/${PN}_${MY_PV}_${DEB_ARCH}.deb"
+SRC_URI="https://repo.wallarm.com/ubuntu/wallarm-node/focal/3.4/pool/${PN}_${MY_PV}_${DEB_ARCH}.deb"
 
 LICENSE=""
 SLOT="0"
@@ -39,15 +39,15 @@ src_unpack() {
 src_prepare() {
 		default
 
-		unpack usr/share/doc/${PN}/changelog.Debian.gz
-		unpack usr/share/doc/${PN}/NEWS.Debian.gz
+		unpack usr/share/doc/${PN}/changelog.gz
+		unpack usr/share/doc/${PN}/NEWS.gz
 		sed -i 's/<P/LoadPlugin python\n\n<P/' etc/collectd/wallarm-collectd.conf.d/write_api.conf
 }
 
 src_install() {
 		dodoc usr/share/doc/${PN}/copyright
-		dodoc changelog.Debian
-		dodoc NEWS.Debian
+		dodoc changelog
+		dodoc NEWS
 
 		insinto "/usr/$(get_libdir)"
 		doins -r usr/lib/nagios

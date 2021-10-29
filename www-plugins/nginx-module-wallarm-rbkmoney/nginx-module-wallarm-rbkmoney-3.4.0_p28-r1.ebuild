@@ -26,7 +26,8 @@ RDEPEND="dev-libs/libconfig
          dev-db/lmdb
          >=dev-libs/libproton-3.4.0
 	 dev-libs/libtws
-	 dev-libs/libwacl
+         dev-libs/libmaxminddb
+	 >=dev-libs/libwacl-3.0.0
 	 dev-libs/libwlog
 	 dev-libs/libwyajl
 	 dev-libs/libyaml

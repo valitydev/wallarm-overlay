@@ -50,4 +50,6 @@ src_install() {
 		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
 		doins usr/lib/ruby/vendor_ruby/${RUBY_TG}/${PN}.rb
 		doins -r usr/lib/ruby/vendor_ruby/${RUBY_TG}/${PN}
+		dosym /usr/$(get_libdir)/libruby27.so.2.7 /usr/$(get_libdir)/libruby-2.7.so.2.7
+
 }

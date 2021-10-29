@@ -31,12 +31,12 @@ src_unpack() {
 src_prepare() {
         eapply_user
 
-        unpack usr/share/doc/ruby-${PN}/changelog.gz
+        unpack usr/share/doc/ruby-${PN}/changelog.Debian.gz
 }
 
 src_install() {
         dodoc usr/share/doc/ruby-${PN}/copyright
-        dodoc changelog
+        dodoc changelog.Debian
 
                 insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
                 doins usr/lib/ruby/vendor_ruby/$(ver_rs 1- _ ${PN}).rb

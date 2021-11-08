@@ -22,7 +22,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="dev-libs/libconfig
          >=dev-libs/libproton-3.4.0
-	 dev-lang/ruby:2.7"
+         dev-lang/ruby:2.7"
 BDEPEND=""
 
 src_unpack() {
@@ -33,13 +33,13 @@ src_unpack() {
 src_prepare() {
         eapply_user
 
-        unpack usr/share/doc/ruby-${PN}/changelog.gz
+        unpack usr/share/doc/ruby-${PN}/changelog.Debian.gz
 }
 
 src_install() {
         dodoc usr/share/doc/ruby-${PN}/copyright
-        dodoc changelog
+        dodoc changelog.Debian
 
-		insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
-		doins -r usr/lib/ruby/vendor_ruby/wallarm
+                insinto /usr/$(get_libdir)/ruby/vendor_ruby/${RUBY_TG}
+                doins -r usr/lib/ruby/vendor_ruby/wallarm
 }
